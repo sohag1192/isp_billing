@@ -1,0 +1,48 @@
+[2025-08-28 22:02:20] == Auto billing start for month 2025-08 ==
+[2025-08-28 22:33:13] == Auto billing start for 2025-08 ==
+[2025-08-28 22:33:13] == Auto billing start for 2025-08 ==
+[2025-08-28 22:33:14] == Auto billing start for 2025-08 ==
+[2025-08-28 22:33:14] == Auto billing start for 2025-08 ==
+[2025-08-28 22:33:14] == Auto billing start for 2025-08 ==
+[2025-08-28 22:33:14] == Auto billing start for 2025-08 ==
+[2025-08-28 22:50:22] == Auto billing start for 2025-08 ==
+[2025-08-28 23:03:33] == Auto billing start for 2025-08 ==
+[2025-08-28 23:03:33] Skip: invoices already exist (non-void) for 2025-08
+[2025-08-28 23:03:36] == Auto billing start for 2025-08 ==
+[2025-08-28 23:03:36] Skip: invoices already exist (non-void) for 2025-08
+[2025-08-28 23:03:38] == Auto billing start for 2025-08 ==
+[2025-08-28 23:03:38] Skip: invoices already exist (non-void) for 2025-08
+[2025-08-29 00:55:44] == Auto billing start for 2025-08 ==
+[2025-08-29 00:55:44] Skip: invoices already exist (non-void) for 2025-08
+[2025-08-29 09:20:18] == Auto billing start for 2025-08 ==
+[2025-08-29 09:20:18] Skip: invoices already exist (non-void) for 2025-08
+[2025-08-30 12:19:38] == Auto billing start for 2025-08 ==
+[2025-08-30 12:19:38] Skip: invoices already exist (non-void) for 2025-08
+[2025-08-30 12:24:27] == Auto billing start for 2025-08 (force=0, dry=0) ==
+[2025-08-30 12:24:27] Skip: today is not 1st and no force/backfill (ym=2025-08)
+[2025-08-30 12:24:45] == Auto billing start for 2025-08 (force=1, dry=0) ==
+[2025-08-30 12:24:45] invoice_generate output: /* ==================== Theme Variables ==================== */
+    :root{
+      /* Layout */
+      --topbar-h: 56px;
+      --sb-w: 224px;
+      --sb-w-collapsed: 70px;
+
+      /* Background */
+      --bg-base: #f4f7fb;
+      --bg-g1: rgba(99,102,241,.18);
+      --bg-g2: rgba(14,165,233,.16);
+      --bg-g3: rgba(34,197,94,.14);
+
+      /* Topbar */
+      --tb-g1: #0ea5e9;
+      --tb-g2: #6366f1;
+      --tb-border: rgba(255,255,255,.2);
+
+      /* Sidebar */
+      --sb-bg: rgba(15, 23, 42, .82);
+      --sb-brd: rgba(148,163,184,.25);
+      --sb-shadow: 0 10px 28px rgba(2,6,23,
+[2025-08-30 12:24:45] Done: generated for 2025-08, total rows now=218
+[2025-09-01 20:57:15] == Auto billing start for 2025-09 (force=0, dry=0) ==
+[2025-09-01 20:57:19] == Auto billing start for 2025-09 (force=0, dry=0) ==

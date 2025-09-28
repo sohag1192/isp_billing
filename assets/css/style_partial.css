@@ -1,0 +1,185 @@
+ <style>
+    /* ==================== Theme Variables ==================== */
+    :root{
+      /* Layout */
+      --topbar-h: 56px;
+      --sb-w: 224px;
+      --sb-w-collapsed: 70px;
+
+      /* Background */
+      --bg-base: #f4f7fb;
+      --bg-g1: rgba(99,102,241,.18);
+      --bg-g2: rgba(14,165,233,.16);
+      --bg-g3: rgba(34,197,94,.14);
+
+      /* Topbar */
+      --tb-g1: #0ea5e9;
+      --tb-g2: #6366f1;
+      --tb-border: rgba(255,255,255,.2);
+
+      /* Sidebar */
+      --sb-bg: rgba(15, 23, 42, .82);
+      --sb-brd: rgba(148,163,184,.25);
+      --sb-shadow: 0 10px 28px rgba(2,6,23,.25);
+
+      /* Menu (ash solid) */
+      --menu-text: #374151;
+    }
+
+    /* ==================== App Shell ==================== */
+    body.app-shell{
+      min-height: 100vh;
+      background:
+        radial-gradient(1000px 680px at 10% 8%,  var(--bg-g1), transparent 60%),
+        radial-gradient(880px  560px at 88% 12%, var(--bg-g2), transparent 60%),
+        radial-gradient(960px  640px at 50% 95%, var(--bg-g3), transparent 60%),
+        var(--bg-base);
+    }
+    .layout{
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: var(--sb-w) 1fr;
+    }
+    body.sb-collapsed .layout{ grid-template-columns: var(--sb-w-collapsed) 1fr; }
+
+    /* ==================== Topbar ==================== */
+    .topbar{
+      min-height: var(--topbar-h);
+      background-image: linear-gradient(90deg, var(--tb-g1), var(--tb-g2));
+      border-bottom: 1px solid var(--tb-border);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .topbar .navbar-brand img{
+      height: 28px; width:auto; display:block;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+    }
+    .topbar .btn{
+      --bs-btn-border-color: rgba(255,255,255,.35);
+      --bs-btn-hover-border-color: rgba(255,255,255,.6);
+    }
+
+    /* Quick search (desktop) */
+    #nav-search-group{
+      position: relative; max-width: 520px; width: 360px;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+    }
+    #nav-search-group .form-control{
+      background: transparent; color: #fff; border: 0;
+    }
+    #nav-search-group .form-control::placeholder{ color: rgba(255,255,255,.85); }
+    #nav-search-group .input-group-text{ background: transparent; color: #fff; border: 0; }
+    #nav-search-group .btn{ border: 0; background: rgba(255,255,255,.18); color:#fff; }
+
+    /* Suggest dropdown */
+    .suggest-box{
+      position: absolute; left:0; right:0; top:100%; z-index: 2000;
+      background: #fff; border: 1px solid rgba(0,0,0,.12); border-top: 0;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+      border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
+      max-height: 55vh; overflow: auto;
+    }
+    .suggest-item{ display:flex; justify-content:space-between; align-items:center; padding:8px 10px; cursor:pointer; border-top:1px solid #f2f2f2; font-size:14px; }
+    .suggest-item:first-child{ border-top:0; }
+    .suggest-item:hover, .suggest-item.active{ background: #f5f9ff; }
+    .suggest-left{ display:flex; gap:8px; align-items:center; }
+    .suggest-name{ font-weight:600; }
+    .suggest-meta{ color:#6c757d; font-size:12px; }
+
+    /* ==================== Sidebar ==================== */
+    .sidebar{
+      grid-column: 1;
+      background: var(--sb-bg);
+      color: #e5e7eb;
+      border-right: 1px solid var(--sb-brd);
+      width: var(--sb-w) !important;
+      box-shadow: var(--sb-shadow);
+    }
+    body.sb-collapsed .sidebar{ width: var(--sb-w-collapsed) !important; }
+    .sidebar-scroll{ height: calc(100vh - var(--topbar-h)); overflow:auto; padding: .8rem; }
+
+    .menu-title{
+      font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: #aab4c4;
+      padding: .35rem .4rem .25rem;
+    }
+
+    /* === Ash Solid Menu Button === */
+    .btn-menu{
+      width: 100%;
+      text-align: left;
+      display:flex;
+      align-items:center;
+      gap:.6rem;
+
+      color: var(--menu-text) !important;           
+      background: #b0b0b0 !important;      /* your ash choice */
+      border: 1px solid #d1d5db !important;
+      border-radius: .65rem;
+      padding: .55rem .7rem;
+      transition: all .15s ease-in-out;
+      font-weight: 500;
+      margin-bottom: .4rem;
+    }
+    .btn-menu .bi{ width: 1.1rem; font-size: 1.05rem; color:#4b5563; }
+
+    .btn-menu:hover{
+      background: #d1d5db !important;   
+      border-color: #9ca3af !important;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0,0,0,.15);
+      color: #111827 !important;        
+    }
+
+    /* Active state with Blue highlight */
+    .btn-menu.active,
+    .btn-menu[aria-expanded="true"]{
+      background: #3b82f6 !important;   /* Blue */
+      border-color: #2563eb !important;
+      color: #fff !important;
+      font-weight: 600;
+    }
+
+    /* ==================== Content Area ==================== */
+    .content-area{
+      grid-column: 2; min-width: 0;
+      padding: 12px;
+    }
+    .content-edge{ padding-left: 0 !important; padding-right: 0 !important; }
+
+    /* Desktop offcanvas fix → static on md+ */
+    @media (min-width:768px){
+      .offcanvas-md{position:static; transform:none !important; visibility:visible !important;}
+      .offcanvas-md .offcanvas-body{display:block !important;}
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 767.98px){
+      .layout{ display:block; }
+      .content-area{ padding: 6px; }
+      .topbar .navbar-brand img{ height: 24px; }
+      #nav-search-group{ width: 100%; }
+    }
+    @media (max-width: 575.98px){
+      .topbar .btn{ padding: .25rem .45rem; }
+    }
+
+    /* Mobile search bar */
+    .mobile-search{
+      background-image: linear-gradient(90deg, var(--tb-g1), var(--tb-g2));
+      border-bottom: 1px solid var(--tb-border);
+    }
+    #nav-search-group-m{
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    #nav-search-group-m .form-control{ background: transparent; color: #fff; border: 0; }
+    #nav-search-group-m .input-group-text{ background: transparent; color:#fff; border:0; }
+    #nav-search-group-m .btn{ border:0; background: rgba(255,255,255,.2); color:#fff; }
+  </style>
+  

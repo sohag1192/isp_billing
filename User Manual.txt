@@ -1,0 +1,61 @@
+
+invoice Generate
+http://103.175.242.18/public/invoice_generate.php?month=2025-08&commit=1
+
+
+
+
+
+Bill Generate
+
+সব ক্লায়েন্ট:
+/public/invoice_generate.php?month=2025-08&commit=1
+
+নির্দিষ্ট রাউটার (উদাহরণ, ID=8):
+/public/invoice_generate.php?month=2025-08&router_id=8&commit=1
+
+
+
+Bill Generate
+
+সব ক্লায়েন্ট:
+/public/invoice_generate.php?month=2025-08&commit=1
+
+নির্দিষ্ট রাউটার (উদাহরণ, ID=8):
+/public/invoice_generate.php?month=2025-08&router_id=8&commit=1
+
+
+
+autobill_cron
+Dry preview (web):
+http://localhost/cron/auto_billing.php?dry=1
+
+Backfill (web):
+http://localhost/cron/auto_billing.php?month=2025-09&force=1
+
+CLI backfill:
+php /var/www/html/cron/auto_billing.php 2025-09 --force
+
+
+
+biilling cron
+-----------------
+
+Daily cron (00:10 BD) — স্ক্রিপ্ট নিজে থেকেই ১ তারিখ ছাড়া স্কিপ করবে:
+10 0 * * * /usr/bin/php /var/www/html/cron/auto_billing.php >> /var/www/html/storag
+
+SMS _CRON
+-----------------------
+ক্রন সাজেশন:
+
+# প্রতি রাত 12:05 — due ক্লায়েন্টদের কিউতে তোলা (১-২ বার/দিন যথেষ্ট)
+5 0 * * * /usr/bin/php /var/www/html/cron/sms_due_reminder.php >> /var/www/html/storage/logs/sms.log 2>&1
+
+# প্রতি 2 মিনিটে কিউ প্রসেসর
+*/2 * * * * /usr/bin/php /var/www/html/cron/sms_sender.php >> /var/www/html/storage/logs/sms.log 2>&1
+
+
+
+
+
+

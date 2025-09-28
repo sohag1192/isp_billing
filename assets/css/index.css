@@ -1,0 +1,121 @@
+<style>
+/* ====================== Dashboard Theme (Light) ====================== */
+/* বাংলা: ledger/collection KPIs নিচের Financial Summary ব্লকে */
+:root{
+  --g-base: #eef2f7;
+  --g1: rgba(99, 102, 241, .16);
+  --g2: rgba(14, 165, 233, .14);
+  --g3: rgba(34, 197, 94,  .12);
+
+  --glass: rgba(255,255,255,.92);
+  --glass-border: rgba(20, 30, 60, .12);
+  --shadow: 0 8px 26px rgba(16, 24, 40, .12);
+
+  --kpi-total-1:#5b7cfa;   --kpi-total-2:#3752d6;
+  --kpi-active-1:#28e6a8;  --kpi-active-2:#1a9d73;
+  --kpi-inact-1:#ff6b5a;   --kpi-inact-2:#d93025;
+  --kpi-exp-1:#ffd65e;     --kpi-exp-2:#e6b800;
+  --kpi-pend-1:#4dd4f0;    --kpi-pend-2:#1596a8;
+  --kpi-left-1:#a0a3b3;    --kpi-left-2:#5c636a;
+  --kpi-online-1:#33e6ad;  --kpi-online-2:#147a52;
+  --kpi-off-1:#868e96;     --kpi-off-2:#495057;
+  --kpi-dis-1:#d0d2e0;     --kpi-dis-2:#747b84;
+
+  --btnI-1:#93a0fb; --btnI-2:#adb7ff;
+  --btnS-1:#7ecff7; --btnS-2:#a9e1fb;
+  --btnL-1:#8c99ad; --btnL-2:#a4aebb;
+
+  --kpi-due-1:#ff8a8a;     --kpi-due-2:#ff4d4d;   /* Due লাল টোন */
+  --kpi-adv-1:#86efac;     --kpi-adv-2:#22c55e;   /* Advance সবুজ */
+}
+
+.dashboard-hero{
+  position: relative; padding: 16px;
+  background:
+    radial-gradient(1000px 680px at 10% 8%,  var(--g1), transparent 60%),
+    radial-gradient(1000px 560px at 90% 12%, var(--g2), transparent 60%),
+    radial-gradient(1000px 640px at 50% 92%, var(--g3), transparent 60%),
+    var(--g-base);
+}
+
+/* KPI cards */
+.kpi-card{
+  border: 0;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: .9rem 1rem;
+  color: #fff;
+  display: flex; align-items: center; gap: .55rem;
+  transition: transform .16s ease, box-shadow .16s ease, border-color .2s ease;
+}
+.kpi-card:hover{ transform: translateY(-2px); box-shadow: 0 12px 32px rgba(16,24,40,.18); }
+.kpi-icon{ font-size:1.25rem; opacity:.95; }
+.kpi-title{ font-size:.82rem; margin:0; opacity:.92; line-height:1.1; }
+.kpi-value{ font-size:1.35rem; font-weight:800; margin:0; letter-spacing:.2px; line-height:1; }
+
+/* Color variants */
+.kpi-total  { background-image: linear-gradient(135deg,var(--kpi-total-1), var(--kpi-total-2)); }
+.kpi-active { background-image: linear-gradient(135deg,var(--kpi-active-1),var(--kpi-active-2)); }
+.kpi-inact  { background-image: linear-gradient(135deg,var(--kpi-inact-1), var(--kpi-inact-2)); }
+.kpi-pend   { background-image: linear-gradient(135deg,var(--kpi-pend-1),  var(--kpi-pend-2)); }
+.kpi-left   { background-image: linear-gradient(135deg,var(--kpi-left-1),  var(--kpi-left-2)); }
+.kpi-online { background-image: linear-gradient(135deg,var(--kpi-online-1),var(--kpi-online-2)); }
+.kpi-off    { background-image: linear-gradient(135deg,var(--kpi-off-1),   var(--kpi-off-2)); }
+.kpi-dis    { background-image: linear-gradient(135deg,var(--kpi-dis-1),   var(--kpi-dis-2)); }
+.kpi-exp{
+  background-image: linear-gradient(135deg,var(--kpi-exp-1), var(--kpi-exp-2));
+  color:#212529;
+}
+.kpi-exp .kpi-icon{ color:#5c4b00; opacity:.9; }
+
+/* Financial Summary custom colors */
+.kpi-due { background-image: linear-gradient(135deg,var(--kpi-due-1), var(--kpi-due-2)); }
+.kpi-adv { background-image: linear-gradient(135deg,var(--kpi-adv-1), var(--kpi-adv-2)); }
+
+/* Glass cards */
+.stat-card{
+  border: 2px solid var(--glass-border);
+  background:
+    linear-gradient(180deg, rgba(99,102,241,.06), rgba(14,165,233,.05) 48%, rgba(34,197,94,.05)),
+    var(--glass);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: .9rem 1rem;
+  color: #0f172a;
+  transition: transform .16s ease, box-shadow .16s ease, border-color .2স ease;
+  display:flex; align-items:center; gap:.55rem;
+}
+.stat-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(16,24,40,.18);
+  border-color: rgba(20,30,60,.18);
+}
+.stat-card .bi{ font-size:1.25rem; color:#334155; }
+
+/* Section header + chip */
+.section-title{ font-size:.95rem; font-weight:700; color:#1f2937; }
+.chip{
+  display:inline-flex; align-items:center; gap:.35rem;
+  padding:.15rem .55rem; border-radius:999px; font-size:.75rem; font-weight:600;
+  background:#eef2ff; color:#3730a3;
+}
+
+/* Quick Links pastel buttons */
+.btn-pill{
+  border:0; border-radius:999px; padding:.42rem .9rem; font-weight:700;
+  color:#0f1627;
+  box-shadow: 0 6px 16px rgba(17,24,39,.12);
+  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+}
+.btn-pill:hover{ transform: translateY(-1px); filter: brightness(1.02); box-shadow: 0 10px 22px rgba(17,24,39,.16); }
+.btn-indigo{  background-image: linear-gradient(135deg,#93a0fb,#adb7ff); }
+.btn-sky{     background-image: linear-gradient(135deg,#7ecff7,#a9e1fb); }
+.btn-slate{   background-image: linear-gradient(135deg,#8c99ad,#a4aebb); }
+
+@media (max-width: 576px){
+  .kpi-value{ font-size:1.2rem; }
+  .kpi-icon{ font-size:1.15rem; }
+}
+</style>

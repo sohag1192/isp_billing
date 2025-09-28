@@ -1,0 +1,6 @@
+{
+    "require": {
+        "phpseclib/phpseclib": "3.0",
+        "dompdf/dompdf": "^3.1"
+    }
+}
