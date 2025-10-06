@@ -52,7 +52,7 @@ An advanced **ISP Client Management & Billing System** built with **Pure PHP (PD
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/isp_billing.git
+   git clone https://github.com/swaponmahmud/isp_billing.git
    ```
 
 2. **Move to your local server directory**
@@ -140,7 +140,7 @@ If you build on or redistribute this code, you must:
 
 1. **রিপোজিটরি ক্লোন করুন**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/isp_billing.git
+   git clone https://github.com/swaponmahmud/isp_billing.git
    ```
 
 2. **লোকাল সার্ভারে প্রজেক্ট রাখুন**
@@ -155,7 +155,7 @@ If you build on or redistribute this code, you must:
    - `/app/config.php` ফাইলে ডাটাবেজ ইনফো দিন।
 
 5. **প্রজেক্ট রান করুন**
-   - [http://localhost/isp_billing/public](http://localhost/isp_billing/public)
+   - [http://localhost/isp_billing/public]
 
 ---
 
